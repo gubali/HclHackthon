@@ -1,0 +1,10 @@
+$whiteColor: #fff;
+.header{
+    background-color: #000;
+&__title{
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    color: $whiteColor
+}
+}

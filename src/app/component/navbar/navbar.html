@@ -1,0 +1,83 @@
+<div class="container-fluid header">
+  <h3 class="header__title">Healthcare Portal</h3>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Healthcare Portal</a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mainNavbar"
+      aria-controls="mainNavbar"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
+        </li>
+
+        <!-- Patient Profile Management Dropdown -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="patientDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Patient Profile
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="patientDropdown">
+            <li><a class="dropdown-item" href="/patient/profile/view">View Profile</a></li>
+            <li><a class="dropdown-item" href="/patient/profile/edit">Edit Profile</a></li>
+          </ul>
+        </li>
+
+        <!-- Appointments -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="appointmentsDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Appointments
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="appointmentsDropdown">
+            <li><a class="dropdown-item" href="/appointments/schedule">Schedule Appointment</a></li>
+            <li><a class="dropdown-item" href="/appointments/view">View Appointments</a></li>
+          </ul>
+        </li>
+
+        <!-- Reports -->
+        <li class="nav-item">
+          <a class="nav-link" href="/dashboard/reports">Reports</a>
+        </li>
+
+        <!-- Settings -->
+        <li class="nav-item">
+          <a class="nav-link" href="/settings">Settings</a>
+        </li>
+      </ul>
+
+      <!-- Right side (e.g., user menu) -->
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,125 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100 bg-light">
+  <div class="card shadow-lg p-4 rounded-4" style="max-width: 600px; width: 100%; border-left: 5px solid #198754;">
+    <div class="text-center mb-4">
+      <img src="https://img.icons8.com/fluency/96/heart-with-pulse.png" width="80" alt="Health Icon" />
+      <h4 class="fw-bold text-success">Create Health Account</h4>
+      <p class="text-muted small">Join our medical platform today</p>
+    </div>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs mb-3" id="formTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="personal-tab" data-bs-toggle="tab" data-bs-target="#personal" type="button" role="tab" aria-controls="personal" aria-selected="true">Personal</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="medical-tab" data-bs-toggle="tab" data-bs-target="#medical" type="button" role="tab" aria-controls="medical" aria-selected="false">Medical</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="security-tab" data-bs-toggle="tab" data-bs-target="#security" type="button" role="tab" aria-controls="security" aria-selected="false">Security</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="emergency-tab" data-bs-toggle="tab" data-bs-target="#emergency" type="button" role="tab" aria-controls="emergency" aria-selected="false">Emergency</button>
+      </li>
+    </ul>
+
+    <form (ngSubmit)="register()">
+      <div class="tab-content" id="formTabsContent">
+
+        <!-- Personal Info Tab -->
+        <div class="tab-pane fade show active" id="personal" role="tabpanel" aria-labelledby="personal-tab">
+          <div class="form-floating mb-3">
+            <input type="text" id="fullName" class="form-control" placeholder="Full Name" [(ngModel)]="fullName" name="fullName" required />
+            <label for="fullName">Full Name</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="date" id="dob" class="form-control" placeholder="Date of Birth" [(ngModel)]="dob" name="dob" required />
+            <label for="dob">Date of Birth</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <select id="gender" class="form-select" [(ngModel)]="gender" name="gender" required>
+              <option value="" disabled selected>Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+              <option value="preferNotToSay">Prefer not to say</option>
+            </select>
+            <label for="gender">Gender</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="tel" id="phone" class="form-control" placeholder="Phone Number" [(ngModel)]="phone" name="phone" required pattern="[0-9]{10,15}" />
+            <label for="phone">Phone Number</label>
+          </div>
+        </div>
+
+        <!-- Medical Info Tab -->
+        <div class="tab-pane fade" id="medical" role="tabpanel" aria-labelledby="medical-tab">
+          <div class="form-floating mb-3">
+            <input type="text" id="address" class="form-control" placeholder="Address" [(ngModel)]="address" name="address" required />
+            <label for="address">Address</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <select id="bloodGroup" class="form-select" [(ngModel)]="bloodGroup" name="bloodGroup" required>
+              <option value="" disabled selected>Select Blood Group</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+            </select>
+            <label for="bloodGroup">Blood Group</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <textarea id="medicalConditions" class="form-control" placeholder="Allergies / Medical Conditions" [(ngModel)]="medicalConditions" name="medicalConditions" style="height: 80px;"></textarea>
+            <label for="medicalConditions">Allergies / Medical Conditions</label>
+          </div>
+        </div>
+
+        <!-- Security Tab -->
+        <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
+          <div class="form-floating mb-3">
+            <input type="password" id="password" class="form-control" placeholder="Password" [(ngModel)]="password" name="password" required />
+            <label for="password">Password</label>
+          </div>
+
+          <div class="form-floating mb-4">
+            <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password" [(ngModel)]="confirmPassword" name="confirmPassword" required />
+            <label for="confirmPassword">Confirm Password</label>
+          </div>
+        </div>
+
+        <!-- Emergency Contact Tab -->
+        <div class="tab-pane fade" id="emergency" role="tabpanel" aria-labelledby="emergency-tab">
+          <div class="form-floating mb-3">
+            <input type="text" id="emergencyContactName" class="form-control" placeholder="Emergency Contact Name" [(ngModel)]="emergencyContactName" name="emergencyContactName" required />
+            <label for="emergencyContactName">Emergency Contact Name</label>
+          </div>
+
+          <div class="form-floating mb-4">
+            <input type="tel" id="emergencyContactPhone" class="form-control" placeholder="Emergency Contact Phone" [(ngModel)]="emergencyContactPhone" name="emergencyContactPhone" required pattern="[0-9]{10,15}" />
+            <label for="emergencyContactPhone">Emergency Contact Phone</label>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success w-100 py-2 fw-semibold mt-3">Register</button>
+
+      <div class="text-center mt-3">
+        <small>
+          Already have an account?
+          <a routerLink="/login" class="text-decoration-none text-success fw-semibold">Login</a>
+        </small>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Add Bootstrap JS bundle (make sure you have it included) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

@@ -102,3 +102,6 @@ For more information on using the Angular CLI, including detailed command refere
     - 
   - Doctor
   - Admin
+
+# API Testing tools
+ - Postman/Thunder client

@@ -16,6 +16,6 @@ const patientSchema = new mongoose.Schema({
     profileImage: { type: String, required: true }
 });
 
-const Patient = mongoose.model('Patient', patientSchema, 'patients'); 
+const Patient = mongoose.model('Patient', patientSchema, 'patient'); 
 
 module.exports = Patient;

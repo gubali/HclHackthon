@@ -5,7 +5,7 @@ const patientRoutes = require('./patient/routes/Patient');
 const app = express();
 const PORT = 5000;  
 
-const MONGODB_URI = 'mongodb://localhost:27017/patient';
+const MONGODB_URI = 'mongodb://localhost:27017/users';
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Patient } from '../../../models/patient/patient.model.';
 import { PatientService } from '../../../services/patient-service';
+import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-patient',
-  imports: [],
+  imports: [HttpClientModule ],
   templateUrl: './patient.html',
   styleUrl: './patient.scss',
 })
@@ -11,7 +12,7 @@ export class PatientComponent implements OnInit {
   patient!: Patient;
   patients: Patient[] = [];
   errorMessage: string = '';
-  constructor(private patientService: PatientService) {}
+  constructor() {}
   ngOnInit(): void {
     this.patient = new Patient({
       fullName: 'Jane Doe',
@@ -26,21 +27,21 @@ export class PatientComponent implements OnInit {
       emergencyContactPhone: '+0987654321',
       profileImage: 'https://randomuser.me/api/portraits/women/44.jpg',
     });
-    this.getPatients();
+    //this.getPatients();
   }
 
-  getPatients(): void {
-    this.patientService.getPatients().subscribe({
-      next: (data) => {
-        this.patients = Array.isArray(data) ? data : [data];
-        console.log('Patients data loaded:', this.patients);
-        this.errorMessage = '';
-      },
-      error: (error) => {
-        this.errorMessage = 'Failed to load patients data';
-        console.error('Error fetching patients:', error);
-      },
-    });
-  }
+  // getPatients(): void {
+  //   this.patientService.getPatients().subscribe({
+  //     next: (data) => {
+  //       this.patients = Array.isArray(data) ? data : [data];
+  //       console.log('Patients data loaded:', this.patients);
+  //       this.errorMessage = '';
+  //     },
+  //     error: (error) => {
+  //       this.errorMessage = 'Failed to load patients data';
+  //       console.error('Error fetching patients:', error);
+  //     },
+  //   });
+  // }
 }
 export { Patient };

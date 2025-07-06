@@ -11,7 +11,7 @@ export class Patient {
   confirmPassword: string = '';
   emergencyContactName: string = '';
   emergencyContactPhone: string = '';
-  profileImage: string = 'https://randomuser.me/api/portraits'
+  profileImage: string = ''
 
   constructor(init?: Partial<Patient>) {
     Object.assign(this, init);

@@ -13,7 +13,7 @@ const patientSchema = new mongoose.Schema({
     confirmPassword: { type: String, required: true },
     emergencyContactName: { type: String, required: true },
     emergencyContactPhone: { type: String, required: true },
-    profileImage: { type: String, required: true }
+    profileImage: { type: String, required: false },
 });
 
 const Patient = mongoose.model('Patient', patientSchema, 'patient'); 

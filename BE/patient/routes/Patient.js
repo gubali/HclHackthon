@@ -16,4 +16,15 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.post("/", async (req, res) => {
+    try {
+        const patients = new Patient(req.body);
+        const saveAddedPatient = await patients.save();
+        res.status(201).json({ message: 'Patient added successfully', patientId: saveAddedPatient._id });
+    }
+    catch (err) {
+        res.status(400).json({ message: 'Error adding patient', error: err });
+    }
+})
+
 module.exports = router;

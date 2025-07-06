@@ -4,12 +4,16 @@ import { Observable } from 'rxjs';
 import { Patient } from '../models/patient/patient.model.';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PatientService {
- private apiUrl = 'http://localhost:8000/api/patients';
-  constructor(private http:HttpClient) { }
-   getPatients(): Observable<Patient[]> {
+  private apiUrl = 'http://localhost:8000/api/patients';
+  constructor(private http: HttpClient) {}
+  getPatients(): Observable<Patient[]> {
     return this.http.get<Patient[]>(this.apiUrl);
+  }
+
+  addPatient(patient: Patient): Observable<Patient> {
+    return this.http.post<Patient>(this.apiUrl, patient);
   }
 }

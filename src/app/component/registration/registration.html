@@ -1,44 +1,112 @@
 <div class="container d-flex justify-content-center align-items-center min-vh-100 bg-light">
-  <div class="card shadow-lg p-4 rounded-4" style="max-width: 600px; width: 100%; border-left: 5px solid #198754;">
+  <div class="card shadow-lg p-4 rounded-4" style="max-width: 600px; width: 100%; border-left: 5px solid #198754">
     <div class="text-center mb-4">
-      <img src="https://img.icons8.com/fluency/96/heart-with-pulse.png" width="80" alt="Health Icon" />
+      <img
+        src="https://img.icons8.com/fluency/96/heart-with-pulse.png"
+        width="80"
+        alt="Health Icon"
+      />
       <h4 class="fw-bold text-success">Create Health Account</h4>
       <p class="text-muted small">Join our medical platform today</p>
     </div>
 
-    <!-- Nav tabs -->
     <ul class="nav nav-tabs mb-3" id="formTabs" role="tablist">
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="personal-tab" data-bs-toggle="tab" data-bs-target="#personal" type="button" role="tab" aria-controls="personal" aria-selected="true">Personal</button>
+        <button
+          class="nav-link active"
+          id="personal-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#personal"
+          type="button"
+          role="tab"
+          aria-controls="personal"
+          aria-selected="true"
+        >
+          Personal
+        </button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="medical-tab" data-bs-toggle="tab" data-bs-target="#medical" type="button" role="tab" aria-controls="medical" aria-selected="false">Medical</button>
+        <button
+          class="nav-link"
+          id="medical-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#medical"
+          type="button"
+          role="tab"
+          aria-controls="medical"
+          aria-selected="false"
+        >
+          Medical
+        </button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="security-tab" data-bs-toggle="tab" data-bs-target="#security" type="button" role="tab" aria-controls="security" aria-selected="false">Security</button>
+        <button
+          class="nav-link"
+          id="security-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#security"
+          type="button"
+          role="tab"
+          aria-controls="security"
+          aria-selected="false"
+        >
+          Security
+        </button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="emergency-tab" data-bs-toggle="tab" data-bs-target="#emergency" type="button" role="tab" aria-controls="emergency" aria-selected="false">Emergency</button>
+        <button
+          class="nav-link"
+          id="emergency-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#emergency"
+          type="button"
+          role="tab"
+          aria-controls="emergency"
+          aria-selected="false"
+        >
+          Emergency
+        </button>
       </li>
     </ul>
 
-    <form (ngSubmit)="register()">
+    <form [formGroup]="registrationForm" (ngSubmit)="register()">
       <div class="tab-content" id="formTabsContent">
-
         <!-- Personal Info Tab -->
         <div class="tab-pane fade show active" id="personal" role="tabpanel" aria-labelledby="personal-tab">
           <div class="form-floating mb-3">
-            <input type="text" id="fullName" class="form-control" placeholder="Full Name" [(ngModel)]="fullName" name="fullName" required />
+            <input
+              type="text"
+              id="fullName"
+              class="form-control"
+              placeholder="Full Name"
+              formControlName="fullName"
+            />
             <label for="fullName">Full Name</label>
+            <div *ngIf="registrationForm.get('fullName')?.touched && registrationForm.get('fullName')?.invalid" class="text-danger">
+              Full Name is required.
+            </div>
           </div>
 
           <div class="form-floating mb-3">
-            <input type="date" id="dob" class="form-control" placeholder="Date of Birth" [(ngModel)]="dob" name="dob" required />
+            <input
+              type="date"
+              id="dob"
+              class="form-control"
+              placeholder="Date of Birth"
+              formControlName="dob"
+            />
             <label for="dob">Date of Birth</label>
+            <div *ngIf="registrationForm.get('dob')?.touched && registrationForm.get('dob')?.invalid" class="text-danger">
+              Date of Birth is required.
+            </div>
           </div>
 
           <div class="form-floating mb-3">
-            <select id="gender" class="form-select" [(ngModel)]="gender" name="gender" required>
+            <select
+              id="gender"
+              class="form-select"
+              formControlName="gender"
+            >
               <option value="" disabled selected>Select Gender</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
@@ -46,23 +114,61 @@
               <option value="preferNotToSay">Prefer not to say</option>
             </select>
             <label for="gender">Gender</label>
+            <div *ngIf="registrationForm.get('gender')?.touched && registrationForm.get('gender')?.invalid" class="text-danger">
+              Gender is required.
+            </div>
           </div>
 
           <div class="form-floating mb-3">
-            <input type="tel" id="phone" class="form-control" placeholder="Phone Number" [(ngModel)]="phone" name="phone" required pattern="[0-9]{10,15}" />
+            <input
+              type="tel"
+              id="phone"
+              class="form-control"
+              placeholder="Phone Number"
+              formControlName="phone"
+            />
             <label for="phone">Phone Number</label>
+            <div *ngIf="registrationForm.get('phone')?.touched && registrationForm.get('phone')?.invalid" class="text-danger">
+              A valid Phone Number is required.
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="tel"
+              id="email"
+              class="form-control"
+              placeholder="email"
+              formControlName="email"
+            />
+            <label for="email">Email</label>
+            <div *ngIf="registrationForm.get('email')?.touched && registrationForm.get('email')?.invalid" class="text-danger">
+              A valid email id is required.
+            </div>
           </div>
         </div>
 
         <!-- Medical Info Tab -->
         <div class="tab-pane fade" id="medical" role="tabpanel" aria-labelledby="medical-tab">
           <div class="form-floating mb-3">
-            <input type="text" id="address" class="form-control" placeholder="Address" [(ngModel)]="address" name="address" required />
+            <input
+              type="text"
+              id="address"
+              class="form-control"
+              placeholder="Address"
+              formControlName="address"
+            />
             <label for="address">Address</label>
+            <div *ngIf="registrationForm.get('address')?.touched && registrationForm.get('address')?.invalid" class="text-danger">
+              Address is required.
+            </div>
           </div>
 
           <div class="form-floating mb-3">
-            <select id="bloodGroup" class="form-select" [(ngModel)]="bloodGroup" name="bloodGroup" required>
+            <select
+              id="bloodGroup"
+              class="form-select"
+              formControlName="bloodGroup"
+            >
               <option value="" disabled selected>Select Blood Group</option>
               <option value="A+">A+</option>
               <option value="A-">A-</option>
@@ -74,10 +180,19 @@
               <option value="O-">O-</option>
             </select>
             <label for="bloodGroup">Blood Group</label>
+            <div *ngIf="registrationForm.get('bloodGroup')?.touched && registrationForm.get('bloodGroup')?.invalid" class="text-danger">
+              Blood Group is required.
+            </div>
           </div>
 
           <div class="form-floating mb-3">
-            <textarea id="medicalConditions" class="form-control" placeholder="Allergies / Medical Conditions" [(ngModel)]="medicalConditions" name="medicalConditions" style="height: 80px;"></textarea>
+            <textarea
+              id="medicalConditions"
+              class="form-control"
+              placeholder="Allergies / Medical Conditions"
+              formControlName="medicalConditions"
+              style="height: 80px"
+            ></textarea>
             <label for="medicalConditions">Allergies / Medical Conditions</label>
           </div>
         </div>
@@ -85,41 +200,70 @@
         <!-- Security Tab -->
         <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
           <div class="form-floating mb-3">
-            <input type="password" id="password" class="form-control" placeholder="Password" [(ngModel)]="password" name="password" required />
+            <input
+              type="password"
+              id="password"
+              class="form-control"
+              placeholder="Password"
+              formControlName="password"
+            />
             <label for="password">Password</label>
+            <div *ngIf="registrationForm.get('password')?.touched && registrationForm.get('password')?.invalid" class="text-danger">
+              <div *ngIf="registrationForm.get('password')?.hasError('required')">Password is required.</div>
+              <div *ngIf="registrationForm.get('password')?.hasError('minlength')">Password must be at least 6 characters long.</div>
+            </div>
           </div>
 
-          <div class="form-floating mb-4">
-            <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password" [(ngModel)]="confirmPassword" name="confirmPassword" required />
+          <div class="form-floating mb-3">
+            <input
+              type="password"
+              id="confirmPassword"
+              class="form-control"
+              placeholder="Confirm Password"
+              formControlName="confirmPassword"
+            />
             <label for="confirmPassword">Confirm Password</label>
+            <div *ngIf="registrationForm.get('confirmPassword')?.touched && registrationForm.get('confirmPassword')?.invalid" class="text-danger">
+              <div *ngIf="registrationForm.get('confirmPassword')?.hasError('required')">Confirm Password is required.</div>
+              <div *ngIf="registrationForm.get('confirmPassword')?.hasError('passwordMismatch')">Passwords do not match.</div>
+            </div>
           </div>
         </div>
 
-        <!-- Emergency Contact Tab -->
+        <!-- Emergency Info Tab -->
         <div class="tab-pane fade" id="emergency" role="tabpanel" aria-labelledby="emergency-tab">
           <div class="form-floating mb-3">
-            <input type="text" id="emergencyContactName" class="form-control" placeholder="Emergency Contact Name" [(ngModel)]="emergencyContactName" name="emergencyContactName" required />
+            <input
+              type="text"
+              id="emergencyContactName"
+              class="form-control"
+              placeholder="Emergency Contact Name"
+              formControlName="emergencyContactName"
+            />
             <label for="emergencyContactName">Emergency Contact Name</label>
+            <div *ngIf="registrationForm.get('emergencyContactName')?.touched && registrationForm.get('emergencyContactName')?.invalid" class="text-danger">
+              Emergency Contact Name is required.
+            </div>
           </div>
 
-          <div class="form-floating mb-4">
-            <input type="tel" id="emergencyContactPhone" class="form-control" placeholder="Emergency Contact Phone" [(ngModel)]="emergencyContactPhone" name="emergencyContactPhone" required pattern="[0-9]{10,15}" />
+          <div class="form-floating mb-3">
+            <input
+              type="tel"
+              id="emergencyContactPhone"
+              class="form-control"
+              placeholder="Emergency Contact Phone"
+              formControlName="emergencyContactPhone"
+            />
             <label for="emergencyContactPhone">Emergency Contact Phone</label>
+            <div *ngIf="registrationForm.get('emergencyContactPhone')?.touched && registrationForm.get('emergencyContactPhone')?.invalid" class="text-danger">
+              A valid Emergency Contact Phone is required.
+            </div>
           </div>
         </div>
       </div>
 
-      <button type="submit" class="btn btn-success w-100 py-2 fw-semibold mt-3">Register</button>
-
-      <div class="text-center mt-3">
-        <small>
-          Already have an account?
-          <a routerLink="/login" class="text-decoration-none text-success fw-semibold">Login</a>
-        </small>
-      </div>
+      <!-- Register Button -->
+      <button type="submit" class="btn btn-success w-100 mt-4"  [disabled]="registrationForm.invalid">Register</button>
     </form>
   </div>
 </div>
-
-<!-- Add Bootstrap JS bundle (make sure you have it included) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

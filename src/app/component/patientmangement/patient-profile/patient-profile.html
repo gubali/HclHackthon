@@ -1,0 +1,124 @@
+<div class="container mt-5 user-profile-form">
+  <!-- Profile Picture Section -->
+  <div class="text-center mb-4">
+    <img
+      [src]="patientForm?.get('profileImage')?.value || 'https://via.placeholder.com/120?text=User'"
+      alt="{{ patientForm?.get('fullName')?.value || 'Patient Name' }}'s Profile Picture"
+      class="rounded-circle profile-pic shadow-sm"
+      width="80"
+      height="80"
+    />
+  </div>
+
+  <!-- Full Name & Email -->
+  <h4 class="text-center mb-2">{{ patientForm?.get('fullName')?.value || 'Patient Name' }}</h4>
+  <p class="text-center text-muted mb-4">{{ patientForm?.get('email')?.value || 'Email address' }}</p>
+
+  <!-- Form Section -->
+  <form [formGroup]="patientForm!">
+    <div class="row gy-2">
+      <!-- Date of Birth -->
+      <div class="col-6">
+        <label for="dob" class="form-label">Date of Birth</label>
+        <input
+          id="dob"
+          class="form-control form-control-sm"
+          type="text"
+          formControlName="dob"
+          readonly
+        />
+      </div>
+
+      <!-- Gender -->
+      <div class="col-6">
+        <label for="gender" class="form-label">Gender</label>
+        <input
+          id="gender"
+          class="form-control form-control-sm"
+          type="text"
+          formControlName="gender"
+          readonly
+        />
+      </div>
+
+      <!-- Phone -->
+      <div class="col-6">
+        <label for="phone" class="form-label">Phone</label>
+        <input
+          id="phone"
+          class="form-control form-control-sm"
+          type="text"
+          formControlName="phone"
+          readonly
+        />
+      </div>
+
+      <!-- Blood Group -->
+      <div class="col-6">
+        <label for="bloodGroup" class="form-label">Blood Group</label>
+        <input
+          id="bloodGroup"
+          class="form-control form-control-sm"
+          type="text"
+          formControlName="bloodGroup"
+          readonly
+        />
+      </div>
+
+      <!-- Address -->
+      <div class="col-12">
+        <label for="address" class="form-label">Address</label>
+        <input
+          id="address"
+          class="form-control form-control-sm"
+          type="text"
+          formControlName="address"
+          readonly
+        />
+      </div>
+
+      <!-- Medical Conditions -->
+      <div class="col-12">
+        <label for="medicalConditions" class="form-label">Medical Conditions</label>
+        <textarea
+          id="medicalConditions"
+          class="form-control form-control-sm"
+          rows="2"
+          formControlName="medicalConditions"
+          readonly
+        ></textarea>
+      </div>
+
+      <!-- Emergency Contact Name -->
+      <div class="col-6">
+        <label for="emergencyContactName" class="form-label">Emergency Contact</label>
+        <input
+          id="emergencyContactName"
+          class="form-control form-control-sm"
+          type="text"
+          formControlName="emergencyContactName"
+          readonly
+        />
+      </div>
+
+      <!-- Emergency Contact Phone -->
+      <div class="col-6">
+        <label for="emergencyContactPhone" class="form-label">Phone</label>
+        <input
+          id="emergencyContactPhone"
+          class="form-control form-control-sm"
+          type="text"
+          formControlName="emergencyContactPhone"
+          readonly
+        />
+      </div>
+    </div>
+
+    <!-- Edit Profile Button -->
+    <div class="text-center mt-4">
+      <button class="btn btn-primary btn-sm" routerLink="/patient-profile/edit">
+        Edit Profile
+      </button>
+    </div>
+  </form>
+</div>

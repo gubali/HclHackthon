@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { Navbar } from '../navbar/navbar';
 import { RouterOutlet } from '@angular/router';
-import { PatientComponent } from '../patientmangement/patient/patient';
+import { PatientProfile } from '../patientmangement/patient-profile/patient-profile';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [Navbar, RouterOutlet,PatientComponent],
+  imports: [Navbar, RouterOutlet],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss'
 })

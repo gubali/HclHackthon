@@ -11,7 +11,7 @@ export const routes: Routes = [
     path: 'registration',
     loadComponent: () =>
       import('./component/registration/registration').then(
-        (m) => m.Registration
+        (m) => m.RegistrationComponent
       ),
   },
   {
@@ -28,8 +28,8 @@ export const routes: Routes = [
       {
         path:"patient",
         loadComponent: () =>
-          import('./component/patientmangement/patient/patient').then(
-            (m) => m.PatientComponent
+          import('./component/patientmangement/patient-profile/patient-profile').then(
+            (m) => m.PatientProfile
           ),
       },
       {
